@@ -1,0 +1,138 @@
+
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 100" width="800" height="200">
+      <style>
+        @keyframes spin { 100% { transform: rotate(360deg); } }
+        @keyframes pulse { 50% { opacity: 0.5; } }
+        @keyframes dash { to { stroke-dashoffset: 8; } }
+        @keyframes gradient { 
+          0% { stop-color: #ffffff; }
+          50% { stop-color: #1e90ff; }
+          100% { stop-color: #ffffff; }
+        }
+        .gradient-text { 
+          font-family: Arial, sans-serif; 
+          font-weight: bold;
+          letter-spacing: 1px;
+        }
+        .animate-gradient {
+          animation: gradient 3s linear infinite;
+        }
+      </style>
+      
+      <!-- Logo Icon -->
+      <g transform="translate(20, 0)">
+        <!-- Orbital Ring -->
+        <circle cx="50" cy="50" r="45" fill="none" stroke="url(#orbital-gradient)" stroke-width="1">
+          <animateTransform
+            attributeName="transform"
+            type="rotate"
+            from="0 50 50"
+            to="360 50 50"
+            dur="10s"
+            repeatCount="indefinite"
+          />
+        </circle>
+        
+        <!-- Rocket Body -->
+        <path d="M50 20 L60 50 L50 80 L40 50 Z" fill="url(#rocket-gradient)">
+          <animate
+            attributeName="opacity"
+            values="1;0.5;1"
+            dur="2s"
+            repeatCount="indefinite"
+          />
+        </path>
+
+        <!-- AI Circuit Lines -->
+        <g stroke-dasharray="4,4">
+          <path d="M30 50 Q50 20 70 50" fill="none" stroke="#1e90ff" stroke-width="1">
+            <animate
+              attributeName="stroke-dashoffset"
+              values="0;8"
+              dur="3s"
+              repeatCount="indefinite"
+            />
+          </path>
+          <path d="M30 50 Q50 80 70 50" fill="none" stroke="#1e90ff" stroke-width="1">
+            <animate
+              attributeName="stroke-dashoffset"
+              values="0;8"
+              dur="3s"
+              repeatCount="indefinite"
+            />
+          </path>
+        </g>
+
+        <!-- Center Glow -->
+        <circle cx="50" cy="50" r="25" fill="url(#glow-gradient)" opacity="0.5">
+          <animate
+            attributeName="opacity"
+            values="0.5;0.3;0.5"
+            dur="2s"
+            repeatCount="indefinite"
+          />
+        </circle>
+      </g>
+
+      <!-- Text Group -->
+      <g transform="translate(120, 60)">
+        <!-- BLUE -->
+        <text class="gradient-text" font-size="32">
+          <tspan fill="url(#text-gradient)" class="animate-gradient">BLUE</tspan>
+        </text>
+        
+        <!-- SKY -->
+        <text class="gradient-text" x="90" fill="#1e90ff" font-size="32">SKY</text>
+        
+        <!-- AI -->
+        <text class="gradient-text" x="155" fill="url(#ai-gradient)" font-size="32">AI</text>
+        
+        <!-- Decorative Lines -->
+        <line x1="0" y1="35" x2="80" y2="35" stroke="url(#line-gradient)" stroke-width="0.5" />
+        <line x1="90" y1="5" x2="140" y2="5" stroke="#1e90ff" stroke-width="0.5" />
+        <line x1="155" y1="35" x2="190" y2="35" stroke="url(#line-gradient)" stroke-width="0.5" />
+      </g>
+
+      <!-- Gradients -->
+      <defs>
+        <linearGradient id="rocket-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stop-color="#1e90ff" />
+          <stop offset="100%" stop-color="#87ceeb" />
+        </linearGradient>
+        
+        <linearGradient id="orbital-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stop-color="#1e90ff" stop-opacity="0.8" />
+          <stop offset="100%" stop-color="#87ceeb" stop-opacity="0.2" />
+        </linearGradient>
+
+        <radialGradient id="glow-gradient" cx="50%" cy="50%" r="50%">
+          <stop offset="0%" stop-color="#1e90ff" stop-opacity="0.3" />
+          <stop offset="100%" stop-color="#1e90ff" stop-opacity="0" />
+        </radialGradient>
+
+        <linearGradient id="text-gradient" x1="0%" y1="0%" x2="100%" y2="0%">
+          <stop offset="0%" stop-color="#ffffff">
+            <animate attributeName="stop-color" values="#ffffff; #1e90ff; #ffffff" dur="3s" repeatCount="indefinite" />
+          </stop>
+          <stop offset="100%" stop-color="#1e90ff">
+            <animate attributeName="stop-color" values="#1e90ff; #ffffff; #1e90ff" dur="3s" repeatCount="indefinite" />
+          </stop>
+        </linearGradient>
+
+        <linearGradient id="ai-gradient" x1="0%" y1="0%" x2="100%" y2="0%">
+          <stop offset="0%" stop-color="#1e90ff">
+            <animate attributeName="stop-color" values="#1e90ff; #ffffff; #1e90ff" dur="3s" repeatCount="indefinite" />
+          </stop>
+          <stop offset="100%" stop-color="#ffffff">
+            <animate attributeName="stop-color" values="#ffffff; #1e90ff; #ffffff" dur="3s" repeatCount="indefinite" />
+          </stop>
+        </linearGradient>
+
+        <linearGradient id="line-gradient" x1="0%" y1="0%" x2="100%" y2="0%">
+          <stop offset="0%" stop-color="#1e90ff" stop-opacity="0" />
+          <stop offset="50%" stop-color="#1e90ff" />
+          <stop offset="100%" stop-color="#1e90ff" stop-opacity="0" />
+        </linearGradient>
+      </defs>
+    </svg>
+  
